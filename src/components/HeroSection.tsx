@@ -31,16 +31,23 @@ const HeroSection = () => {
           </h1>
 
           <div className="mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
-            <div className="flex items-center justify-center gap-2 md:gap-3">
-              <span className="location-text text-sm sm:text-base md:text-lg font-display font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ animationDelay: '0s' }}>
+            <div className="flex items-center justify-center gap-3 md:gap-5">
+              <span 
+                className="location-reveal location-shimmer text-base sm:text-lg md:text-xl font-display font-bold tracking-wide"
+                style={{ animationDelay: '0.5s' }}
+              >
                 Valdez
               </span>
-              <span className="text-accent font-bold text-lg md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">—</span>
-              <span className="location-text text-sm sm:text-base md:text-lg font-display font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ animationDelay: '0.3s' }}>
+              <span 
+                className="location-reveal location-shimmer text-base sm:text-lg md:text-xl font-display font-bold tracking-wide"
+                style={{ animationDelay: '0.8s' }}
+              >
                 Cordova
               </span>
-              <span className="text-accent font-bold text-lg md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">—</span>
-              <span className="location-text text-sm sm:text-base md:text-lg font-display font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ animationDelay: '0.6s' }}>
+              <span 
+                className="location-reveal location-shimmer text-base sm:text-lg md:text-xl font-display font-bold tracking-wide"
+                style={{ animationDelay: '1.1s' }}
+              >
                 Prince William Sound
               </span>
             </div>

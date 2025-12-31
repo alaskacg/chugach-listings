@@ -2,26 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Location text staggered glow animation */
-@keyframes text-glow {
-  0%, 100% {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1);
-    transform: translateY(0);
+/* Typewriter reveal animation for location text */
+@keyframes typewriter-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    filter: blur(4px);
   }
   50% {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.2);
-    transform: translateY(-2px);
+    opacity: 1;
+    transform: translateY(-3px) scale(1.02);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
-.location-text {
-  animation: text-glow 3s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
-.location-text:nth-child(1) { --delay: 0s; }
-.location-text:nth-child(3) { --delay: 1s; }
-.location-text:nth-child(5) { --delay: 2s; }
+.location-reveal {
+  opacity: 0;
+  animation: typewriter-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.location-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(0 0% 100%) 0%,
+    hsl(195 70% 75%) 25%,
+    hsl(35 90% 65%) 50%,
+    hsl(195 70% 75%) 75%,
+    hsl(0 0% 100%) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 4s linear infinite;
+  text-shadow: none;
+}
+
+/* Logo animation */
+@keyframes logo-wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes logo-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--chugach-gold) / 0.3);
+  }
+}
+
+.logo-animated {
+  animation: logo-glow 3s ease-in-out infinite;
+}
+
+.logo-animated:hover {
+  animation: logo-wave 0.6s ease-in-out;
+}
+
+.logo-animated .anchor-icon {
+  transition: transform 0.3s ease;
+}
+
+.logo-animated:hover .anchor-icon {
+  transform: rotate(-15deg) scale(1.1);
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
