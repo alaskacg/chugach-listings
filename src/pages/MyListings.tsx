@@ -149,11 +149,11 @@ const MyListings = () => {
                 My Listings
               </h1>
               <p className="text-muted-foreground text-sm mt-1">
-                Manage your listings on Alaska Listings
+                Manage your listings on Chugach Listings
               </p>
             </div>
             <Link to="/post-listing">
-              <Button variant="aurora" size="sm">
+              <Button variant="chugach" size="sm">
                 <Plus className="w-4 h-4 mr-2" />
                 New Listing
               </Button>
@@ -173,7 +173,7 @@ const MyListings = () => {
                 You haven't posted any listings yet. Create your first listing to reach buyers across Alaska.
               </p>
               <Link to="/post-listing">
-                <Button variant="aurora">Post Your First Listing</Button>
+                <Button variant="chugach">Post Your First Listing</Button>
               </Link>
             </div>
           ) : (

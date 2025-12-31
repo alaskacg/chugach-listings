@@ -61,10 +61,10 @@ const Footer = () => {
         <div className="mt-10 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="text-muted-foreground text-xs text-center md:text-left">
-              © {new Date().getFullYear()} Chugach Listings LLC. All rights reserved.
+              © {new Date().getFullYear()} Alaska Listings LLC. All rights reserved.
             </p>
             <p className="text-muted-foreground text-xs text-center md:text-right max-w-md">
-              Chugach Listings LLC is a listing service only. We do not participate in, endorse, or guarantee any transactions.
+              Alaska Listings LLC is a listing service only. We do not participate in, endorse, or guarantee any transactions.
             </p>
           </div>
         </div>

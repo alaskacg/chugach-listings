@@ -45,7 +45,7 @@ const Browse = () => {
   // Search & Filters
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('all');
-  const [region, setRegion] = useState('all');
+  const [region, setRegion] = useState('chugach');
   const [sortBy, setSortBy] = useState('newest');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -134,10 +134,10 @@ const Browse = () => {
           {/* Page Header */}
           <div className="text-center mb-8">
             <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
-              Browse Alaska Listings
+              Browse Chugach Listings
             </h1>
             <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-              Discover what Alaskans are selling across all regions and categories
+              Discover what's available in Valdez, Cordova, and Prince William Sound
             </p>
           </div>
 
@@ -266,7 +266,7 @@ const Browse = () => {
                       </div>
 
                       <Button 
-                        variant="aurora" 
+                        variant="chugach"
                         className="w-full" 
                         size="sm"
                         onClick={() => {
@@ -294,7 +294,7 @@ const Browse = () => {
                   </SheetContent>
                 </Sheet>
 
-                <Button type="submit" variant="aurora" size="sm" className="text-sm">
+                <Button type="submit" variant="chugach" size="sm" className="text-sm">
                   Search
                 </Button>
               </div>
@@ -394,7 +394,7 @@ const Browse = () => {
                   Clear Filters
                 </Button>
               ) : (
-                <Button variant="aurora" size="sm" asChild>
+                <Button variant="chugach" size="sm" asChild>
                   <a href="/post-listing">Post the First Listing</a>
                 </Button>
               )}
