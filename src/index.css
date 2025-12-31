@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Location text staggered glow animation */
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1);
+    transform: translateY(0);
+  }
+  50% {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.location-text {
+  animation: text-glow 3s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.location-text:nth-child(1) { --delay: 0s; }
+.location-text:nth-child(3) { --delay: 1s; }
+.location-text:nth-child(5) { --delay: 2s; }
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
