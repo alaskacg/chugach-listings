@@ -31,12 +31,18 @@ const HeroSection = () => {
           </h1>
 
           <div className="mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
-            <div className="flex items-center justify-center gap-3 md:gap-4">
-              <span className="text-sm sm:text-base md:text-lg font-display text-chugach-ice animate-pulse" style={{ animationDuration: '3s' }}>Valdez</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-chugach-gold animate-ping" style={{ animationDuration: '2s' }} />
-              <span className="text-sm sm:text-base md:text-lg font-display text-chugach-blue animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}>Cordova</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-chugach-gold animate-ping" style={{ animationDuration: '2s', animationDelay: '0.3s' }} />
-              <span className="text-sm sm:text-base md:text-lg font-display text-primary animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}>Prince William Sound</span>
+            <div className="flex items-center justify-center gap-2 md:gap-3">
+              <span className="location-text text-sm sm:text-base md:text-lg font-display font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ animationDelay: '0s' }}>
+                Valdez
+              </span>
+              <span className="text-accent font-bold text-lg md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">—</span>
+              <span className="location-text text-sm sm:text-base md:text-lg font-display font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ animationDelay: '0.3s' }}>
+                Cordova
+              </span>
+              <span className="text-accent font-bold text-lg md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">—</span>
+              <span className="location-text text-sm sm:text-base md:text-lg font-display font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ animationDelay: '0.6s' }}>
+                Prince William Sound
+              </span>
             </div>
           </div>
 
