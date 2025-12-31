@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-secondary hover:text-secondary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        aurora: "btn-aurora text-primary-foreground font-semibold hover:scale-105",
+        chugach: "btn-chugach text-primary-foreground font-semibold hover:scale-105",
         gold: "bg-accent text-accent-foreground font-semibold hover:shadow-lg hover:shadow-accent/30 hover:scale-105",
         glass: "bg-secondary/50 backdrop-blur-md border border-foreground/10 text-foreground hover:bg-secondary/70 hover:border-foreground/20",
       },
