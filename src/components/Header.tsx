@@ -22,11 +22,11 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14 md:h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Anchor className="w-4 h-4 text-primary-foreground" />
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center logo-animated">
+                <Anchor className="w-4 h-4 text-primary-foreground anchor-icon" />
               </div>
-              <span className="font-display text-base font-bold text-foreground">Chugach Listings</span>
+              <span className="font-display text-base font-bold text-foreground group-hover:text-primary transition-colors">Chugach Listings</span>
             </Link>
 
             {/* Desktop Navigation */}
