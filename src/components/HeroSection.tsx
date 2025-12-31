@@ -31,9 +31,13 @@ const HeroSection = () => {
           </h1>
 
           <div className="mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
-            <p className="font-sans text-sm sm:text-base md:text-lg tracking-[0.2em] uppercase animate-shimmer font-medium">
-              Valdez • Cordova • Prince William Sound
-            </p>
+            <div className="flex items-center justify-center gap-3 md:gap-4">
+              <span className="text-sm sm:text-base md:text-lg font-display text-chugach-ice animate-pulse" style={{ animationDuration: '3s' }}>Valdez</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-chugach-gold animate-ping" style={{ animationDuration: '2s' }} />
+              <span className="text-sm sm:text-base md:text-lg font-display text-chugach-blue animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}>Cordova</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-chugach-gold animate-ping" style={{ animationDuration: '2s', animationDelay: '0.3s' }} />
+              <span className="text-sm sm:text-base md:text-lg font-display text-primary animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}>Prince William Sound</span>
+            </div>
           </div>
 
           {/* Browse Options Grid */}

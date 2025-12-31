@@ -119,7 +119,7 @@ const AdminSettings = () => {
               <RefreshCw className="w-3 h-3 mr-1" />
               Refresh
             </Button>
-            <Button onClick={saveSettings} variant="aurora" size="sm" disabled={saving}>
+            <Button onClick={saveSettings} variant="chugach" size="sm" disabled={saving}>
               <Save className="w-3 h-3 mr-1" />
               {saving ? 'Saving...' : 'Save Changes'}
             </Button>

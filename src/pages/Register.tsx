@@ -174,7 +174,7 @@ const Register = () => {
 
                 <Button
                   type="submit"
-                  variant="aurora"
+                  variant="chugach"
                   size="lg"
                   className="w-full"
                   disabled={loading}

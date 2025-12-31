@@ -142,7 +142,7 @@ const ListingDetail = () => {
               This listing may have expired or been removed.
             </p>
             <Link to="/browse">
-              <Button variant="aurora">Browse All Listings</Button>
+              <Button variant="chugach">Browse All Listings</Button>
             </Link>
           </div>
         </main>
@@ -320,8 +320,8 @@ const ListingDetail = () => {
 
               {/* Contact Button */}
               <Button 
-                variant="aurora" 
-                size="lg" 
+                variant="chugach" 
+                size="lg"
                 className="w-full"
                 asChild
               >

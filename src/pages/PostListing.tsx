@@ -55,7 +55,7 @@ const PostListing = () => {
   
   // Form state
   const [category, setCategory] = useState('');
-  const [region, setRegion] = useState('');
+  const [region, setRegion] = useState('chugach');
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
