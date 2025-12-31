@@ -2,22 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Typewriter reveal animation for location text */
-@keyframes typewriter-reveal {
+/* Location text animations */
+@keyframes location-fade-up {
   0% {
     opacity: 0;
-    transform: translateY(10px) scale(0.95);
-    filter: blur(4px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-3px) scale(1.02);
-    filter: blur(0);
+    transform: translateY(15px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
@@ -30,26 +23,29 @@
   }
 }
 
-.location-reveal {
+.location-text-animated {
   opacity: 0;
-  animation: typewriter-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: location-fade-up 0.6s ease-out forwards;
 }
 
 .location-shimmer {
   background: linear-gradient(
     90deg,
     hsl(0 0% 100%) 0%,
-    hsl(195 70% 75%) 25%,
-    hsl(35 90% 65%) 50%,
-    hsl(195 70% 75%) 75%,
+    hsl(195 70% 80%) 25%,
+    hsl(43 75% 55%) 50%,
+    hsl(195 70% 80%) 75%,
     hsl(0 0% 100%) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: text-shimmer 4s linear infinite;
-  text-shadow: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.location-shimmer.location-text-animated {
+  animation: location-fade-up 0.6s ease-out forwards, text-shimmer 4s linear 0.6s infinite;
 }
 
 /* Logo animation */
@@ -113,8 +109,8 @@
     --muted: 215 40% 12%;
     --muted-foreground: 200 25% 65%;
 
-    --accent: 35 90% 55%;
-    --accent-foreground: 215 50% 6%;
+    --accent: 43 75% 42%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 200 30% 98%;
@@ -130,7 +126,7 @@
     --chugach-ice: 195 70% 60%;
     --chugach-deep: 215 60% 25%;
     --chugach-navy: 215 50% 15%;
-    --chugach-gold: 35 90% 55%;
+    --chugach-gold: 43 75% 42%;
     --midnight: 215 50% 6%;
     --glacier: 195 40% 80%;
     --snow: 200 30% 98%;
@@ -138,7 +134,7 @@
     /* Gradients (Deep Blue & Ice) */
     --gradient-chugach: linear-gradient(135deg, hsl(var(--chugach-blue)) 0%, hsl(var(--chugach-ice)) 35%, hsl(var(--chugach-deep)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(215 50% 10%) 0%, hsl(215 50% 6%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(35 90% 55%) 0%, hsl(25 85% 45%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 75% 42%) 0%, hsl(38 70% 35%) 100%);
 
     /* Shadows */
     --shadow-glow: 0 0 60px hsl(var(--chugach-blue) / 0.3);
@@ -175,8 +171,8 @@
     --muted: 195 25% 96%;
     --muted-foreground: 215 30% 45%;
 
-    --accent: 35 90% 50%;
-    --accent-foreground: 215 50% 11%;
+    --accent: 43 75% 38%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 50%;
     --destructive-foreground: 0 0% 100%;
@@ -190,7 +186,7 @@
     --chugach-ice: 195 60% 50%;
     --chugach-deep: 215 50% 35%;
     --chugach-navy: 215 45% 25%;
-    --chugach-gold: 35 90% 50%;
+    --chugach-gold: 43 75% 38%;
     --midnight: 215 50% 11%;
     --glacier: 195 40% 50%;
     --snow: 200 30% 98%;
@@ -198,7 +194,7 @@
     /* Gradients - Light (Deep Blue & Ice) */
     --gradient-chugach: linear-gradient(135deg, hsl(var(--chugach-blue)) 0%, hsl(var(--chugach-ice)) 35%, hsl(var(--chugach-deep)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(195 25% 98%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(35 90% 50%) 0%, hsl(25 85% 45%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 75% 38%) 0%, hsl(38 70% 32%) 100%);
 
     /* Shadows - Light */
     --shadow-glow: 0 0 60px hsl(var(--chugach-blue) / 0.2);

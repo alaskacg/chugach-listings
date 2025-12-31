@@ -31,26 +31,9 @@ const HeroSection = () => {
           </h1>
 
           <div className="mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
-            <div className="flex items-center justify-center gap-3 md:gap-5">
-              <span 
-                className="location-reveal location-shimmer text-base sm:text-lg md:text-xl font-display font-bold tracking-wide"
-                style={{ animationDelay: '0.5s' }}
-              >
-                Valdez
-              </span>
-              <span 
-                className="location-reveal location-shimmer text-base sm:text-lg md:text-xl font-display font-bold tracking-wide"
-                style={{ animationDelay: '0.8s' }}
-              >
-                Cordova
-              </span>
-              <span 
-                className="location-reveal location-shimmer text-base sm:text-lg md:text-xl font-display font-bold tracking-wide"
-                style={{ animationDelay: '1.1s' }}
-              >
-                Prince William Sound
-              </span>
-            </div>
+            <p className="text-sm sm:text-base md:text-lg font-display font-semibold tracking-widest text-foreground/90 uppercase">
+              Valdez <span className="text-accent mx-2">•</span> Cordova <span className="text-accent mx-2">•</span> Prince William Sound
+            </p>
           </div>
 
           {/* Browse Options Grid */}
