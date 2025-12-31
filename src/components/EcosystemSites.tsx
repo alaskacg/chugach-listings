@@ -1,36 +1,28 @@
 import { ExternalLink, Globe } from "lucide-react";
 
 const ecosystemSites = [
+  { name: "Alaska Listings", url: "https://aklistings.com", description: "Statewide" },
   { name: "Kenai Listings", url: "https://kenailistings.com", description: "Kenai Peninsula" },
   { name: "Tongass Listings", url: "https://tongasslistings.com", description: "Southeast Alaska" },
-  { name: "Chugach Listings", url: "https://chugachlistings.com", description: "Prince William Sound" },
-  { name: "Alaska Mining Equipment", url: "https://alaskaminingequipment.com", description: "Mining & Prospecting" },
+  { name: "Anchorage Listings", url: "https://anchoragelistings.com", description: "Anchorage Area" },
   { name: "Alaskan Boats", url: "https://alaskanboats.com", description: "Boats & Watercraft" },
-  { name: "Alcan Listings", url: "https://alcanlistings.com", description: "Alaska Highway" },
-  { name: "Alaska Digs", url: "https://alaskadigs.com", description: "Excavation Equipment" },
-  { name: "Alaska Guide Listings", url: "https://alaskaguidelistings.com", description: "Guide Services" },
+  { name: "Alaska Mining", url: "https://alaskaminingequipment.com", description: "Mining Equipment" },
 ];
 
 const EcosystemSites = () => {
   return (
     <section className="py-16 md:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4">
             <Globe className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Our Network</span>
           </div>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Alaska Listings Network
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Visit our specialized marketplace sites across Alaska
-          </p>
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">Alaska Listings Network</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Visit our specialized marketplace sites across Alaska</p>
         </div>
 
-        {/* Sites Grid - Responsive masonry-like layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
           {ecosystemSites.map((site, index) => (
             <a
               key={site.name}
@@ -46,11 +38,9 @@ const EcosystemSites = () => {
                   <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-1" />
                 </div>
                 <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                  {site.name}
+                  {site.name.replace(" Listings", "")}
                 </h3>
               </div>
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             </a>
           ))}
         </div>
