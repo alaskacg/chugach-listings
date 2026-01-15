@@ -18,9 +18,8 @@ const Footer = () => {
               The Chugach region's trusted marketplace for Valdez, Cordova, and Prince William Sound.
             </p>
             <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">Listings just</span>
-              <span className="text-sm font-semibold text-accent">$10</span>
-              <span className="text-xs text-muted-foreground">for 60 days</span>
+              <span className="text-xs font-semibold text-accent">🎉 FREE during Beta</span>
+              <span className="text-xs text-muted-foreground line-through">$10</span>
             </div>
           </div>
 
