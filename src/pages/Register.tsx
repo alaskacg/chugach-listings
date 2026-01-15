@@ -55,8 +55,8 @@ const Register = () => {
       });
     } else {
       toast({
-        title: "Account Created!",
-        description: "You can now sign in to your account.",
+        title: "Check Your Email! 📧",
+        description: "We've sent a verification link to your email. Please verify to start posting free listings!",
       });
       navigate('/login');
     }
