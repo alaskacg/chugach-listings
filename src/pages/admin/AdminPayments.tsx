@@ -12,10 +12,11 @@ import {
 interface Payment {
   id: string;
   listing_id: string | null;
-  user_id: string | null;
+  user_id: string;
   amount: number;
   status: string;
-  stripe_payment_intent_id: string | null;
+  transaction_id: string | null;
+  payment_method: string | null;
   created_at: string;
 }
 
@@ -70,7 +71,7 @@ const AdminPayments = () => {
   };
 
   const filteredPayments = payments.filter(payment =>
-    payment.stripe_payment_intent_id?.toLowerCase().includes(search.toLowerCase()) ||
+    payment.transaction_id?.toLowerCase().includes(search.toLowerCase()) ||
     payment.id.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -138,7 +139,7 @@ const AdminPayments = () => {
                     <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">Payment ID</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">Amount</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">Status</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">Stripe ID</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">Transaction ID</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">Date</th>
                   </tr>
                 </thead>
@@ -153,7 +154,7 @@ const AdminPayments = () => {
                       </td>
                       <td className="px-4 py-3">{getStatusBadge(payment.status)}</td>
                       <td className="px-4 py-3 text-sm font-mono text-muted-foreground">
-                        {payment.stripe_payment_intent_id || '—'}
+                        {payment.transaction_id || '—'}
                       </td>
                       <td className="px-4 py-3 text-sm text-muted-foreground">
                         {new Date(payment.created_at).toLocaleDateString()}

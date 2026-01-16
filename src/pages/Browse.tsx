@@ -27,14 +27,14 @@ import { supabase } from "@/integrations/supabase/client";
 interface Listing {
   id: string;
   title: string;
-  description: string;
-  price: number;
+  description: string | null;
+  price: number | null;
   category: string;
   region: string;
-  images: string[];
+  images: string[] | null;
   created_at: string;
   user_id: string;
-  contact_name: string;
+  contact_email: string | null;
 }
 
 const Browse = () => {
@@ -56,9 +56,9 @@ const Browse = () => {
     try {
       let query = supabase
         .from('listings')
-        .select('id, title, description, price, category, region, images, created_at, user_id, contact_name')
+        .select('id, title, description, price, category, region, images, created_at, user_id, contact_email')
         .eq('status', 'active')
-        .eq('payment_status', 'paid');
+        .in('payment_status', ['paid', 'beta_free']);
 
       // Apply filters
       if (category !== 'all') {
@@ -440,7 +440,7 @@ const Browse = () => {
                     <div className="pt-2 border-t border-border/30">
                       <SellerTrustBadge 
                         userId={listing.user_id} 
-                        sellerName={listing.contact_name}
+                        sellerName={listing.contact_email?.split('@')[0] || 'Seller'}
                         variant="compact"
                       />
                     </div>

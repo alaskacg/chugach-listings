@@ -24,16 +24,16 @@ import SellerTrustBadge from "@/components/SellerTrustBadge";
 interface Listing {
   id: string;
   title: string;
-  description: string;
-  price: number;
+  description: string | null;
+  price: number | null;
   category: string;
   region: string;
   images: string[] | null;
   created_at: string;
-  contact_name: string;
-  contact_email: string;
+  contact_email: string | null;
   contact_phone: string | null;
   user_id: string;
+  location: string | null;
 }
 
 const categoryLabels: Record<string, string> = {
@@ -76,7 +76,7 @@ const ListingDetail = () => {
           .select('*')
           .eq('id', id)
           .eq('status', 'active')
-          .eq('payment_status', 'paid')
+          .in('payment_status', ['paid', 'beta_free'])
           .single();
 
         if (error) throw error;
@@ -237,7 +237,7 @@ const ListingDetail = () => {
                   {listing.title}
                 </h1>
                 <p className="text-3xl font-bold text-primary">
-                  ${listing.price.toLocaleString()}
+                  ${(listing.price || 0).toLocaleString()}
                 </p>
               </div>
 
@@ -273,21 +273,23 @@ const ListingDetail = () => {
                 <div className="mb-4">
                   <SellerTrustBadge 
                     userId={listing.user_id} 
-                    sellerName={listing.contact_name}
+                    sellerName={listing.contact_email?.split('@')[0] || 'Seller'}
                     variant="full"
                   />
                 </div>
 
                 <div className="space-y-3">
-                  <a 
-                    href={`mailto:${listing.contact_email}`}
-                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <span>{listing.contact_email}</span>
-                  </a>
+                  {listing.contact_email && (
+                    <a 
+                      href={`mailto:${listing.contact_email}`}
+                      className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+                        <Mail className="w-5 h-5" />
+                      </div>
+                      <span>{listing.contact_email}</span>
+                    </a>
+                  )}
                   
                   {listing.contact_phone && (
                     <a 
@@ -319,16 +321,18 @@ const ListingDetail = () => {
               </div>
 
               {/* Contact Button */}
-              <Button 
-                variant="chugach" 
-                size="lg"
-                className="w-full"
-                asChild
-              >
-                <a href={`mailto:${listing.contact_email}?subject=Inquiry: ${listing.title}`}>
-                  Contact Seller
-                </a>
-              </Button>
+              {listing.contact_email && (
+                <Button 
+                  variant="chugach" 
+                  size="lg"
+                  className="w-full"
+                  asChild
+                >
+                  <a href={`mailto:${listing.contact_email}?subject=Inquiry: ${listing.title}`}>
+                    Contact Seller
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
         </div>
