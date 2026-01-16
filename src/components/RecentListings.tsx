@@ -18,9 +18,9 @@ const RecentListings = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('listings')
-        .select('id, title, description, price, category, region, images, created_at, user_id, contact_name')
+        .select('id, title, description, price, category, region, images, created_at, user_id, contact_email')
         .eq('status', 'active')
-        .eq('payment_status', 'paid')
+        .in('payment_status', ['paid', 'beta_free'])
         .eq('region', 'chugach')
         .order('created_at', { ascending: false });
 
@@ -126,7 +126,7 @@ const RecentListings = () => {
                       </div>
                     </div>
                     <div className="mt-2 pt-2 border-t border-border/30">
-                      <SellerTrustBadge userId={listing.user_id} sellerName={listing.contact_name} variant="compact" />
+                      <SellerTrustBadge userId={listing.user_id} sellerName={listing.contact_email?.split('@')[0] || 'Seller'} variant="compact" />
                     </div>
                   </div>
                 </Link>
