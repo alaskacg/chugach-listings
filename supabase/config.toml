@@ -1,1 +1,4 @@
 project_id = "czrtoakraoqlexldujbe"
+
+[functions.forward-listing]
+verify_jwt = false
