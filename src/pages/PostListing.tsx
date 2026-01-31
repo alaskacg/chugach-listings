@@ -206,15 +206,32 @@ const PostListing = () => {
       if (listingError) throw listingError;
 
       // Upload images if any
+      let finalListing = listing;
       if (images.length > 0 && listing) {
         const imageUrls = await uploadImages(listing.id);
         
         if (imageUrls.length > 0) {
-          await supabase
+          const { data: updatedListing } = await supabase
             .from('listings')
             .update({ images: imageUrls })
-            .eq('id', listing.id);
+            .eq('id', listing.id)
+            .select()
+            .single();
+          
+          if (updatedListing) {
+            finalListing = updatedListing;
+          }
         }
+      }
+
+      // Forward listing to ecosystem hub (non-blocking)
+      try {
+        await supabase.functions.invoke('forward-listing', {
+          body: { listing: finalListing }
+        });
+        console.log('Listing forwarded to ecosystem hub');
+      } catch (forwardError) {
+        console.warn('Failed to forward to ecosystem (non-critical):', forwardError);
       }
 
       toast({
