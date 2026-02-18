@@ -5,6 +5,7 @@ import RecentListings from "@/components/RecentListings";
 import EcosystemSites from "@/components/EcosystemSites";
 import CTASection from "@/components/CTASection";
 import TrustIndicators from "@/components/TrustIndicators";
+import EmpireNetwork from "@/components/EmpireNetwork";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <EcosystemSites />
         <RecentListings />
         <CTASection />
+        <EmpireNetwork currentSite="chugach-listings" />
       </main>
       <Footer />
     </div>
