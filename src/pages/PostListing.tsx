@@ -154,7 +154,10 @@ const PostListing = () => {
         description: "Please sign in to post a listing.",
         variant: "destructive",
       });
-      navigate('/login');
+      // Redirect to Stripe for payment
+      const email = encodeURIComponent(contactEmail);
+      window.location.href = `https://buy.stripe.com/5kQcMYbUmdczcai0iK6J200?prefilled_email=${email}`;
+return;
       return;
     }
 
@@ -196,8 +199,8 @@ const PostListing = () => {
           contact_name: contactName.trim(),
           contact_email: contactEmail.trim(),
           contact_phone: contactPhone.trim() || null,
-          status: 'active', // Auto-approve during beta
-          payment_status: 'beta_free', // Mark as beta free listing
+          status: 'pending_payment',
+          payment_status: 'pending', // Mark as listing
           expires_at: expiresAt.toISOString(),
         })
         .select()
@@ -236,10 +239,12 @@ const PostListing = () => {
 
       toast({
         title: "Listing Published! 🎉",
-        description: "Your free beta listing is now live for 60 days!",
+        description: "Your listing is now live for 60 days!",
       });
-
-      navigate('/my-listings');
+      // Redirect to Stripe for payment
+      const email = encodeURIComponent(contactEmail);
+      window.location.href = `https://buy.stripe.com/5kQcMYbUmdczcai0iK6J200?prefilled_email=${email}`;
+return;
     } catch (error) {
       console.error('Error creating listing:', error);
       toast({
