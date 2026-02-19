@@ -273,31 +273,7 @@ const PostListing = () => {
               Post Your Listing
             </h1>
             <p className="text-muted-foreground text-sm">
-              Fill out the form below to create your listing. During beta, all listings are FREE!
-            </p>
-          </div>
-
-          {/* Beta Free Banner */}
-          <div className="bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 rounded-2xl p-6 mb-10 border border-accent/30">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-accent line-through" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground text-sm flex items-center gap-2">
-                    🎉 Beta Special: FREE Listings
-                  </h3>
-                  <p className="text-xs text-muted-foreground">60 days • Up to 5 images • Email verification required</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-lg font-display text-muted-foreground line-through">$10</div>
-                <div className="text-2xl font-display font-bold text-accent">FREE</div>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground mt-4 text-center">
-              All beta listings will remain active for the full 60 days, regardless of when beta ends.
+              Fill out the form below to create your listing.
             </p>
           </div>
 

@@ -4,7 +4,6 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { 
@@ -105,7 +104,7 @@ const AdminSettings = () => {
   const isSecretKey = (key: string) => key.includes('secret') || key.includes('key');
   const stripeSettings = settings.filter(s => s.setting_key.startsWith('stripe'));
   const siteSettings = settings.filter(s => ['site_name', 'contact_email'].includes(s.setting_key));
-  const listingSettings = settings.filter(s => ['listing_price', 'listing_duration_days', 'beta_mode'].includes(s.setting_key));
+  const listingSettings = settings.filter(s => ['listing_price', 'listing_duration_days'].includes(s.setting_key));
 
   return (
     <AdminLayout>
@@ -211,7 +210,7 @@ const AdminSettings = () => {
 
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {listingSettings.filter(s => s.setting_key !== 'beta_mode').map((setting) => (
+                  {listingSettings.map((setting) => (
                     <div key={setting.setting_key} className="space-y-2">
                       <Label htmlFor={setting.setting_key} className="capitalize">{setting.setting_key.replace(/_/g, ' ')}</Label>
                       <Input
@@ -223,22 +222,6 @@ const AdminSettings = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* Beta Mode Toggle */}
-                {getSetting('beta_mode') && (
-                  <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
-                    <div>
-                      <Label className="text-base">Beta Mode (Free Listings)</Label>
-                      <p className="text-sm text-muted-foreground">
-                        When enabled, all listings are free with email verification
-                      </p>
-                    </div>
-                    <Switch
-                      checked={getSetting('beta_mode')?.setting_value === 'true'}
-                      onCheckedChange={(checked) => updateSetting('beta_mode', checked.toString())}
-                    />
-                  </div>
-                )}
               </div>
             </div>
           </div>

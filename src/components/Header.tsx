@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, MapPin, User, LogOut, ChevronDown, Anchor, Sparkles, Gift, Clock } from "lucide-react";
+import { Menu, X, MapPin, User, LogOut, ChevronDown, Anchor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -18,30 +18,6 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Beta Banner */}
-      <div className="bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 border-b border-accent/30">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4 text-center">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
-              <span className="font-display font-semibold text-xs text-foreground">
-                🎉 Beta Launch — FREE Listings!
-              </span>
-            </div>
-            <div className="flex items-center gap-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-1">
-                <Gift className="w-3 h-3 text-accent" />
-                <span>Verify email & post free</span>
-              </div>
-              <div className="hidden sm:flex items-center gap-1">
-                <Clock className="w-3 h-3 text-primary" />
-                <span>60-day guarantee</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
       <div className="bg-glass">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14 md:h-16">

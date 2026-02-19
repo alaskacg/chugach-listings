@@ -74,8 +74,7 @@ const HeroSection = () => {
             </Link>
             <Link to="/post-listing">
               <Button variant="glass" size="lg" className="relative overflow-hidden">
-                <span className="relative z-10">Post Free During Beta</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 animate-pulse" />
+                <span className="relative z-10">Post a Listing</span>
               </Button>
             </Link>
           </div>
@@ -83,8 +82,8 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto mt-10 opacity-0 animate-fade-in" style={{ animationDelay: '1000ms', animationFillMode: 'forwards' }}>
             <div>
-              <div className="font-display text-xl md:text-2xl font-bold text-accent">FREE</div>
-              <div className="text-muted-foreground text-xs">During Beta</div>
+              <div className="font-display text-xl md:text-2xl font-bold text-accent">$10</div>
+              <div className="text-muted-foreground text-xs">Per Listing</div>
             </div>
             <div>
               <div className="font-display text-xl md:text-2xl font-bold text-foreground">60</div>
